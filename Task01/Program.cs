@@ -1,15 +1,17 @@
-﻿int ReadInt(string msg)
+﻿// Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа. 456 -> 5 782 -> 8 918 -> 1
+
+int ReadInt(string msg) // объявляем функцию ReadInt и строковый параметр msg
 {
-    Console.WriteLine(msg);
-    string numb = Console.ReadLine();
-    int number;
-    number = int.Parse(numb);
-    return number;
-}
-int number=ReadInt("Введите трехзначное число ");
-if (number > 99 & number <1000)
+    Console.WriteLine(msg); // пишет в терминал параметр msg
+    string numb = Console.ReadLine(); // функция считывания строки с консоли (терминала)
+    int number; // объявление переменной number
+    number = int.Parse(numb); // результат преобразования строки в число
+    return number; // возврат из функции
+} // описание функции заканчивается
+int number = ReadInt("Введите трехзначное число "); // вызываем функцию ReadInt и передаем в эту функцию "введите трехзначное число". Результат складываем в новую переменную number
+if (number > 99 & number < 1000) // вводим условие на трехзначность
 {
-    int LastDigit = number % 10;
-    Console.WriteLine("Третье число = " + LastDigit);
+    int LastDigit = number % 10; // вводим переменную "последнее число" - результат остаток отделения на 10
+    Console.WriteLine("Третье число = " + LastDigit); // выводим в терминал результат
 }
-else Console.WriteLine("Число не трехзначное");
+else Console.WriteLine("Число не трехзначное"); // комментарий если условие не выполняется, если число не трехзначное
