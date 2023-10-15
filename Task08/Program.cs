@@ -5,37 +5,24 @@
 
 // // Подсказка: рекомендую while
 
-int number = new Random().Next(1, 100); // число от 10 до 99 и переместили в переменную number
 
-int ReadInt(string msg)
-{
-    Console.WriteLine(msg);
-    string numb = Console.ReadLine();
-    int number;
-    number = int.Parse(numb);
-    return number;
-}
-int anyNumber = ReadInt("Введите число от 1 до 99");
-if (anyNumber == number)
-{
-    Console.WriteLine("Ура! С победой! Загаданное число " + number);
-    break;
-}
-else if (anyNumber < 1 || anyNumber > 99)
-{
-    Console.WriteLine("Введенное число не соответствует критериям ввода");
-    break;
-}
-else
-{
-    while (anyNumber > number)
+System.Console.WriteLine("Угадай число от 1 до 99");
+
+int number = new Random().Next(1, 100); // число от 10 до 99 и переместили в переменную number
+int anyNumber;
+
+do {
+    Console.Write("Введите число: ");
+    anyNumber = Convert.ToInt32(Console.ReadLine());
+
+    if (anyNumber > number)
     {
-        Console.WriteLine("больше");
-        int anyNumber = ReadInt("Ввведите число от 1 до 99");
+        Console.WriteLine("Загаданное число больше");
     }
-    while (anyNumber < number)
+    else if (anyNumber < number)
     {
-        Console.WriteLine("меньше");
-        int anyNumber = ReadInt("Ввведите число от 1 до 99");
+        Console.WriteLine("Загаданное число меньше");
     }
 }
+while (anyNumber != number);
+System.Console.WriteLine("Ура! Победа! Загаданное число " + number);
