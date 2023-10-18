@@ -2,14 +2,17 @@
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
-double ReadInt(string msg) // объявляем функцию ReadInt и строковый параметр msg
+
+int power(int A, int B)
 {
-    Console.WriteLine(msg); // пишет в терминал параметр msg
-    double number = Convert.ToInt16(Console.ReadLine());
-    return number; // возврат из функции
-} // описание функции заканчивается
-double result;
-double chislo = ReadInt("Введите первое число");
-double stepen = ReadInt("Введите второе число");
-result = Math.Pow(chislo, stepen);
-System.Console.WriteLine(result);
+    int result = 1;
+    for (int i = 1; i <= B; i++)
+        result = result * A;
+    return result;
+}
+
+Console.WriteLine("Введите первое число");
+int chislo = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второе число");
+int stepen = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(power(chislo, stepen));
